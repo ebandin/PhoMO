@@ -21,7 +21,7 @@ namespace PhoMO.Controllers
 
         public IActionResult Index()
         {
-            List<PhotoField> photos = context.Fields.ToList();
+            List<Photo> photos = context.Photos.ToList();
 
             return View(photos);
         }
@@ -52,10 +52,10 @@ namespace PhoMO.Controllers
         {
             if (ModelState.IsValid)
             {
-                PhotoField newField = new PhotoField
+                Photo newPhoto = new Photo
                 {
                     Name = addPhotoViewModel.Name
-                }; context.Fields.Add(newField);
+                }; context.Photos.Add(newPhoto);
                 context.SaveChanges(); return Redirect("/Field");
             }
             return View(addPhotoViewModel);

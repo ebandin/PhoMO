@@ -1,0 +1,25 @@
+﻿@using  PhoMO.Models;
+
+@model IEnumerable<Date>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+    <div style="font-family:Arial">
+        <h1> List All</h1>
+        <ul>
+
+
+            @foreach (Date photo in @Model)
+            {
+                <li>
+                  @*@Html.ActionLink(photo.DateTime, "Details", new { id = photo.Id })*@
+
+                </li>
+            }
+        </ul>
+        <p><a asp--controller="Field" asp-action="Add">Add Photo</a></p>
+    </div>
