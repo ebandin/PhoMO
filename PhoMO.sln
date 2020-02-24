@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhoMO", "PhoMO\PhoMO.csproj", "{7306C317-5733-4C5C-8329-41E5A3872467}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7306C317-5733-4C5C-8329-41E5A3872467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7306C317-5733-4C5C-8329-41E5A3872467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7306C317-5733-4C5C-8329-41E5A3872467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7306C317-5733-4C5C-8329-41E5A3872467}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFA28CD3-5ECF-41D8-BF40-675A61B96BBC}
+	EndGlobalSection
+EndGlobal
