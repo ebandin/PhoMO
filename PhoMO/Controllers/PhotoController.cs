@@ -56,10 +56,31 @@ namespace PhoMO.Controllers
                 {
                     Name = addPhotoViewModel.Name
                 }; context.Photos.Add(newPhoto);
-                context.SaveChanges(); return Redirect("/Field");
+                context.SaveChanges(); 
+                return Redirect("/Photo");
             }
             return View(addPhotoViewModel);
         }
+
+        public IActionResult Remove()
+        {
+            ViewBag.title = "Remove Photos";
+            ViewBag.photos = context.Photos.ToList();
+            return View();
+        }
+
+
+        [HttpPost]
+        public IActionResult Remove(int[] photoIds)
+        {
+            foreach (int photoId in photoIds)
+            {
+                Photo thePhoto = context.Photos.Single(c => c.ID == photoId);
+                context.Photos.Remove(thePhoto);
+            }
+            context.SaveChanges(); return Redirect("/");
+        }
+
 
     }
 }
