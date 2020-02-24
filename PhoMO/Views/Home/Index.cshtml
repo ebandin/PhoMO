@@ -1,10 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home";
 }
-<h1> hello</h1>
-
-<h2> hihi</h2>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<p>Hi there, how would you like to sort your photos today?</p>
+<ul>
+    @foreach (KeyValuePair
+    <string, string>
+        action in ViewBag.actions)
+        {
+        <li><a href="/Home/@action.Key">@action.Value</a></li>
+        }
+</ul>

@@ -1,0 +1,12 @@
+﻿@model PhoMO.ViewModels.AddPhotoViewModel
+@{
+    ViewData["Title"] = "Add";
+}<h2>Add</h2>
+<form asp-action="Add" asp-controller="Photo" method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <input type="submit" value="Add Photo" />
+</form>
