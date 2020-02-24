@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PhoMO.Models
+
+
+namespace PhoMO.ViewModels
 {
-    public class Date
+    public class AddDateViewModel
     {
-        public int Id { get; set; }
-
+        [Required]
+        [Display(Name = "Date Photo Was Taken")]
         public string DateTime { get; set; }
-
-        public IList<Date> Dates { get; set; }
     }
 }

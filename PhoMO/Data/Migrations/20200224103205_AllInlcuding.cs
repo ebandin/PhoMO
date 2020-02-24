@@ -1,10 +1,9 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace PhoMO.Data.Migrations
+namespace PhoMO.Migrations
 {
-    public partial class CreateIdentitySchema : Migration
+    public partial class AllInlcuding : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,11 +47,31 @@ namespace PhoMO.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Dates",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    DateTime = table.Column<string>(nullable: true),
+                    DateId = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dates", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Dates_Dates_DateId",
+                        column: x => x.DateId,
+                        principalTable: "Dates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -73,7 +92,7 @@ namespace PhoMO.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
                     ClaimValue = table.Column<string>(nullable: true)
@@ -153,6 +172,36 @@ namespace PhoMO.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Photos",
+                columns: table => new
+                {
+                    ID = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: false),
+                    DateTimeId = table.Column<int>(nullable: true),
+                    FocalLength = table.Column<int>(nullable: false),
+                    ShutterSpeed = table.Column<int>(nullable: false),
+                    ISO = table.Column<int>(nullable: false),
+                    PhotoID = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Photos", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Photos_Dates_DateTimeId",
+                        column: x => x.DateTimeId,
+                        principalTable: "Dates",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Photos_Photos_PhotoID",
+                        column: x => x.PhotoID,
+                        principalTable: "Photos",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -191,6 +240,21 @@ namespace PhoMO.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Dates_DateId",
+                table: "Dates",
+                column: "DateId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photos_DateTimeId",
+                table: "Photos",
+                column: "DateTimeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Photos_PhotoID",
+                table: "Photos",
+                column: "PhotoID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -211,10 +275,16 @@ namespace PhoMO.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Photos");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Dates");
         }
     }
 }

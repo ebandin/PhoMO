@@ -5,6 +5,23 @@
     <UserSecretsId>aspnet-PhoMO-8EF48D0E-1679-4D54-875E-CCCA16E67192</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200224094356_Dates.cs" />
+    <Compile Remove="Data\Migrations\20200224094356_Dates.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200224100140_Dates.cs" />
+    <Compile Remove="Data\Migrations\20200224100140_Dates.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200224100517_Photos.cs" />
+    <Compile Remove="Data\Migrations\20200224100517_Photos.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200224101021_PhotoNew.cs" />
+    <Compile Remove="Data\Migrations\20200224101021_PhotoNew.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200224102156_Initial.cs" />
+    <Compile Remove="Data\Migrations\20200224102156_Initial.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200224102512_AddPhoto.cs" />
+    <Compile Remove="Data\Migrations\20200224102512_AddPhoto.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.2" />

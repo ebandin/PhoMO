@@ -10,6 +10,8 @@ namespace PhoMO.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Photo> Photos { get; set; }
+
+        public DbSet<Date> Dates { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

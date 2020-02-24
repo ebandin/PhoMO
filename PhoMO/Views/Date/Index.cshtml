@@ -10,16 +10,16 @@
 
     <div style="font-family:Arial">
         <h1> Ordered by Date</h1>
-        <ul>
+        @*<ul>
 
 
             @foreach (Date photo in @Model)
             {
                 <li>
-                  @*@Html.ActionLink(photo.DateTime, "Details", new { id = photo.Id })*@
+                  @Html.ActionLink(photo.DateTime, "Details", new { id = photo.Id })
 
                 </li>
             }
-        </ul>
+        </ul>*@
         <p><a asp--controller="Photo" asp-action="Add">Add Photo</a></p>
     </div>

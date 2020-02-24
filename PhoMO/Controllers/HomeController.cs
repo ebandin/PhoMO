@@ -34,7 +34,7 @@ namespace PhoMO.Controllers
             Dictionary<string, string> actionChoices = new Dictionary<string, string>();
             actionChoices.Add("ListAll", "List All");
             actionChoices.Add("Search", "Search");
-            actionChoices.Add("AddNew", "Add Photos");
+            actionChoices.Add("Photo/Add", "Add Photos");
             actionChoices.Add("FilePathBuilder", "The File Path Builder");
             //this is to get it to push
             ViewBag.actions = actionChoices;
