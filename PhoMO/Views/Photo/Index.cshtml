@@ -1,4 +1,4 @@
-﻿@model List<PhoMO.Models.Photo>
+﻿@model IList<PhoMO.Models.Photo>
 
 
 <h1>@ViewBag.Title</h1>
@@ -20,7 +20,7 @@
     {
 <tr>
     <td>@photo.Name</td>
-    <td>@photo.DateTime</td>
+    <td>@photo.Date.DateTime</td>
     <td>@photo.FocalLength</td>
     <td>@photo.ISO</td>
     <td>@photo.ShutterSpeed</td>

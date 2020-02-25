@@ -13,9 +13,6 @@ namespace PhoMO.Models
         [Required]
         public string Name { get; set; }
 
-        [DataType(DataType.Date)]
-        public PhotoDate DateTime { get; set; }
-
         [Required]
         public int FocalLength { get; set; }
 

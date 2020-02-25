@@ -5,27 +5,27 @@
 
 <form asp-controller="Photo" asp-action="Add" method="post">   
     <div class="form-group">
-        <label asp-for="Name"></label>
+        <label asp-for="Name">Name of the Photo</label>
         <input class="form-control" asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
     <div class="form-group">
-        <label asp-for="FocalLength"></label>
+        <label asp-for="FocalLength">Focal Length</label>
         <input class="form-control" asp-for="FocalLength" />
         <span asp-validation-for="FocalLength"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Datetime"></label>
-        <select asp-for="Datetime" asp-items="Model.Dates">              </select>
+        <label asp-for="PhotoDates">Date Photo Was Taken</label>
+        <select asp-for="PhotoDates" asp-items="Model.Dates">              </select>
     </div>
     <div class="form-group">
-        <label asp-for="Iso"></label>
+        <label asp-for="Iso">ISO</label>
         <input class="form-control" asp-for="Iso" type="number" />
         <span asp-validation-for="Iso"></span>
     </div>  
 
         <div class="form-group">
-        <label asp-for="Shutterspeed"></label>
+        <label asp-for="Shutterspeed">Shutter Speed</label>
         <input class="form-control" asp-for="Shutterspeed" type="number" />
         <span asp-validation-for="Shutterspeed"></span>
     </div>

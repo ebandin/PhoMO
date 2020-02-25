@@ -4,6 +4,9 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using PhoMO.Models;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace PhoMO.Data
 {
@@ -16,7 +19,13 @@ namespace PhoMO.Data
             : base(options)
         {
         }
+        
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<PhotoMenu>()
+        //        .HasKey(c => new { c.PhotoID, c.MenuID });
+        //}
     }
 
 }
