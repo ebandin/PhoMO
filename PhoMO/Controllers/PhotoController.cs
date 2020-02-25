@@ -117,7 +117,7 @@ namespace PhoMO.Controllers
                 .Include(cat => cat.Photos)
                 .Single(cat => cat.ID == id); 
 
-            ViewBag.title = "Dates in category: " + theDate.DateTime; 
+            ViewBag.title = "Photos on this date: " + theDate.DateTime; 
             
             return View("Index", theDate.Photos);
         }

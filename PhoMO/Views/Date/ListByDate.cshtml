@@ -1,0 +1,39 @@
+﻿@model IList<PhoMO.Models.Photo>
+
+
+
+
+<h1>@ViewBag.Title</h1>
+
+
+@if (Model.Count == 0)
+{
+    <p>No photos yet!</p>
+}
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <td>Date</td>
+        <th>Focal Length</th>
+        <th>ISO</th>
+        <th>Shutter Speed</th>
+    </tr>
+
+    @foreach (var photo in Model)
+    {
+        <tr>
+            <td>@photo.Name</td>
+            <td>@photo.Date.DateTime</td>
+            <td>@photo.FocalLength</td>
+            <td>@photo.ISO</td>
+            <td>@photo.ShutterSpeed</td>
+            @*<td><a asp-controller="Photo" asp-action="Edit" asp-route-photoId="@photo.ID">Edit</a></td>*@
+        </tr>
+    }
+</table>
+
+
+
+
+<p><a asp-controller="Photo" asp-action="Add">Add Photo</a> | <a asp-controller="Photo" asp-action="Remove">Remove Photo</a></p>
