@@ -38,6 +38,8 @@ namespace PhoMO.ViewModels
         public List<SelectListItem> Isos { get; set; }
 
         public List<SelectListItem> PhotoDates { get; set; }
+        
+
         public AddPhotoViewModel(IEnumerable<PhotoDate> dates)
         {
             Dates = new List<SelectListItem>();

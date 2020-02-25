@@ -1,26 +1,35 @@
-﻿@*@model PhoMO.ViewModels.AddEditPhotoViewModel
+﻿@model PhoMO.ViewModels.AddEditPhotoViewModel
     
 
-<h1>Edit Cheese @Model.Name @Model.CheeseId</h1>
+<h1>Edit Photo @Model.Name @Model.PhotoId</h1>
 
 
-<form method="post">    
+<form method="post">
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name" value="@Model.Name" />
+        <label asp-for="Name">Name of the Photo</label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Description"></label>
-        <input class="form-control" asp-for="Description" value="@Model.Description" />
+        <label asp-for="FocalLength">Focal Length</label>
+        <input class="form-control" asp-for="FocalLength" />
+        <span asp-validation-for="FocalLength"></span>
     </div>
     <div class="form-group">
-        <label asp-for="CategoryID"></label>
-        <select asp-for="CategoryID" asp-items="Model.Categories"></select>
+        <label asp-for="DateID">Date Photo Was Taken</label>
+        <select asp-for="DateID" asp-items="Model.Dates">              </select>
     </div>
     <div class="form-group">
-        <label asp-for="Rating"></label>
-        <input asp-for="Rating" value="@Model.Rating" type="number" />
-    </div>    <input type="hidden" value="@Model.CheeseId" asp-for="CheeseId" />
-    
-    
-    <input type="submit" value="Add Cheese" /></form>*@
+        <label asp-for="Iso">ISO</label>
+        <input class="form-control" asp-for="Iso" type="number" />
+        <span asp-validation-for="Iso"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Shutterspeed">Shutter Speed</label>
+        <input class="form-control" asp-for="Shutterspeed" type="number" />
+        <span asp-validation-for="Shutterspeed"></span>
+    </div>
+
+    <input type="submit" value="Add Photo" />
+</form>

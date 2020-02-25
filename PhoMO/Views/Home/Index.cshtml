@@ -1,12 +1,22 @@
 ﻿@{
     ViewBag.Title = "Home";
 }
-<p>Hi there, how would you like to sort your photos today?</p>
-<ul>
+    <p>
+    
+        <br /><br /><br />
+    Hi there @User.Identity.Name, how would you like to sort your photos today?</p>
+<div>
+    <br/><br /><br />
+    <p>
+        The Photograph Metadata Organizer (A.K.A. PhoMO) is be a program that simplifies searching, indexing, and file structuring a photo library.
+    </p>
+</div>
+
+@*<ul>
     @foreach (KeyValuePair
     <string, string>
         action in ViewBag.actions)
         {
         <li><a href="/@action.Key">@action.Value</a></li>
         }
-</ul>
+</ul>*@

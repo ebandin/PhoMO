@@ -21,10 +21,10 @@
 <tr>
     <td>@photo.Name</td>
     <td>@photo.Date.DateTime</td>
-    <td>@photo.FocalLength</td>
+    <td>@photo.FocalLength mm</td>
     <td>@photo.ISO</td>
-    <td>@photo.ShutterSpeed</td>
-    @*<td><a asp-controller="Photo" asp-action="Edit" asp-route-photoId="@photo.ID">Edit</a></td>*@
+    <td>1/ @photo.ShutterSpeed</td>
+    <td><a asp-controller="Photo" asp-action="Edit" asp-route-photoId="@photo.ID">Edit</a></td>
 </tr>
     }
 </table>

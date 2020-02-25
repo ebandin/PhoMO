@@ -43,6 +43,43 @@ namespace PhoMO.Controllers
         //        return Redirect("/Photo");
         //}
 
+
+        public IActionResult Edit(int photoId)
+        {
+            AddEditPhotoViewModel addEditPhotoViewModel = new AddEditPhotoViewModel(context.Dates.ToList());
+            Photo photo = context.Photos.Single(c => c.ID == photoId);
+            PhotoDate newPhotoDate = context.Dates.Single(c => c.ID == photo.DateID);
+            
+            addEditPhotoViewModel.PhotoId = photo.ID;
+            addEditPhotoViewModel.Name = photo.Name;
+            addEditPhotoViewModel.FocalLength = photo.FocalLength;
+            addEditPhotoViewModel.DateID = photo.Date.ID;
+            addEditPhotoViewModel.Iso = photo.ISO;
+            addEditPhotoViewModel.Shutterspeed = photo.ShutterSpeed;
+
+            return View(addEditPhotoViewModel);
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(AddEditPhotoViewModel addEditPhotoViewModel)
+        {
+            var id = context.Photos.FirstOrDefault(c => c.ID == addEditPhotoViewModel.PhotoId);
+            PhotoDate newPhotoDate = context.Dates.Single(c => c.ID == addEditPhotoViewModel.DateID);            
+
+            if (id != null)
+            {
+                id.Name = addEditPhotoViewModel.Name;
+                id.FocalLength = addEditPhotoViewModel.FocalLength;
+                id.Date = newPhotoDate;
+                id.ISO = addEditPhotoViewModel.Iso;
+                id.ShutterSpeed = addEditPhotoViewModel.Shutterspeed;
+                context.Photos.Update(id); 
+                context.SaveChanges();
+            }
+            return Redirect("/");
+        }
+
         public IActionResult Add()
         {
             AddPhotoViewModel addPhotoViewModel = new AddPhotoViewModel(context.Dates.ToList());

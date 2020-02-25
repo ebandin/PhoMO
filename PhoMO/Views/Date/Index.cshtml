@@ -17,11 +17,30 @@
             <p>No Dates yet!</p>
         }
         <p><a asp-controller="Date" asp-action="Add">Add Date</a></p>
+
+@using  (Html.BeginForm())
+{
+
+    <form asp-controller="Date" asp-action="ListByDate" method="post">
+        Find by date: @Html.TextBox("DateString")
+        <input type="submit" value="Date" />
+    </form>
+
+
+}
         <div>
             <ul>
                 @foreach (var date in Model)
                 {
-                <li>@date.DateTime</li>
+                @*<tr>
+                    <td>*@
+
+
+                        @Html.DisplayFor(modelDate => date.DateTime)
+                    <br/>
+                    @*</td>
+                </tr>*@
+                @*<li>@date.DateTime</li>*@
                 }
             </ul>
         </div>

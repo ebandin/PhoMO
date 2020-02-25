@@ -16,12 +16,46 @@ namespace PhoMO.Controllers
         {
             context = dbContext;
         }
-        public IActionResult Index()
-        {
-            List<PhotoDate> dates = context.Dates.ToList(); return View(dates);
-        }
-
         
+        
+        //[HttpGet("[action]/{date}")]
+      public ActionResult Index()
+        //public List<SubscriberHistory> GetSubscriberHistory(string accountNumber)
+        {
+        //    SubscriberManager subsManager = new SubscriberManager();
+        //    return subsManager.GetSubscriberHistoryByAccountNumber(accountNumber);
+        //}
+
+        //{
+
+
+        //    var dates = from s in ApplicationDbContext
+        //                       select s;
+
+        //    if (!String.IsNullOrEmpty(searchString))
+        //    {
+        //        students = students.Where(s => s.LastName.Contains(searchString)
+        //                               || s.FirstMidName.Contains(searchString));
+        //    }
+
+        //   return View(dates.ToList());
+
+        List<PhotoDate> dates = context.Dates.ToList(); 
+
+        return View(dates);
+        }
+        
+        //[HttpGet("Date")]
+        //public IActionResult ListByDate(string date)
+        //{
+        //    if (!String.IsNullOrEmpty(date))
+        //    {
+        //        var dates = from s in Photo
+        //                    select s;
+        //        dates = dates.Where(s => s.DateID.Contains(date));
+        //    }
+        //    return View(dates.ToList());
+        //}
         public IActionResult Add()
         {
             AddDateViewModel addDateViewModel = new AddDateViewModel();
