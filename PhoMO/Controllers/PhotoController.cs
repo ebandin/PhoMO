@@ -13,7 +13,7 @@ namespace PhoMO.Controllers
     public class PhotoController : Controller
     {
 
-        private readonly ApplicationDbContext context;
+        private ApplicationDbContext context;
 
         public PhotoController(ApplicationDbContext dbContext)
         {
@@ -101,7 +101,25 @@ namespace PhoMO.Controllers
                 Photo thePhoto = context.Photos.Single(c => c.ID == photoId);
                 context.Photos.Remove(thePhoto);
             }
-            context.SaveChanges(); return Redirect("/");
+            context.SaveChanges(); 
+            
+            
+            return Redirect("/");
+        }
+
+        public IActionResult Date(int id)
+        {
+            if (id == 0)
+            {
+                return Redirect("/Date");
+            }
+            PhotoDate theDate = context.Dates
+                .Include(cat => cat.Photos)
+                .Single(cat => cat.ID == id); 
+
+            ViewBag.title = "Dates in category: " + theDate.DateTime; 
+            
+            return View("Index", theDate.Photos);
         }
 
 
