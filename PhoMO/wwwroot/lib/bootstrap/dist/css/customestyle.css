@@ -1,0 +1,28 @@
+﻿
+header{
+
+    background-color: darkcyan;
+    color: lightcyan;
+}
+
+nav {
+    background-color: lightblue;
+    color: lightblue;
+    border-bottom: dashed;
+}
+body {
+    color: floralwhite;
+    background-color: lightgray;
+}
+
+footer {
+    background-color: lightblue;
+    color: lightblue;
+
+}
+
+div.form-group {
+    width: 50%;
+}
+
+/*navbar-light bg-white border-bottom box-shadow mb-3*/
