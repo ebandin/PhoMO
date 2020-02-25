@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace PhoMO.Models
 {
-    public class Date
+    public class PhotoDate
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public string DateTime { get; set; }
 
-        public IList<Date> Dates { get; set; }
+        public IList<Photo> Photos { get; set; }
     }
 }

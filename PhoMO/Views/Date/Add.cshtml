@@ -1,12 +1,15 @@
-﻿@model PhoMO.ViewModels.AddPhotoViewModel
+﻿@model PhoMO.ViewModels.AddDateViewModel
 @{
     ViewData["Title"] = "Add";
-}<h2>Add</h2>
-<form asp-action="Add" asp-controller="Photo" method="post">
+}
+
+<h2>Add a Date</h2>
+
+<form asp-action="Add" asp-controller="Date" method="post">
     <div class="form-group">
-        <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name" />
-        <span asp-validation-for="Name"></span>
+        <label asp-for="DateTime"></label>
+        <input class="form-control" asp-for="DateTime" />
+        <span asp-validation-for="DateTime"></span>
     </div>
-    <input type="submit" value="Add Photo" />
+    <input type="submit" value="Add Date" />
 </form>

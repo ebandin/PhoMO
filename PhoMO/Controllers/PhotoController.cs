@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PhoMO.Data;
 using PhoMO.Models;
 using PhoMO.ViewModels;
@@ -21,7 +22,7 @@ namespace PhoMO.Controllers
 
         public IActionResult Index()
         {
-            List<Photo> photos = context.Photos.ToList();
+            List<Photo> photos = context.Photos.Include(c=> c.Date).ToList();
 
             return View(photos);
         }
@@ -44,19 +45,41 @@ namespace PhoMO.Controllers
 
         public IActionResult Add()
         {
-            AddPhotoViewModel addPhotoViewModel = new AddPhotoViewModel();
+            AddPhotoViewModel addPhotoViewModel = new AddPhotoViewModel(context.Dates.ToList());
             return View(addPhotoViewModel);
         }
-        [HttpPost]
+
+
+
+
+
+
+[HttpPost]
         public IActionResult Add(AddPhotoViewModel addPhotoViewModel)
         {
+
+            
+
             if (ModelState.IsValid)
             {
+
+                PhotoDate newPhotoDate = context.Dates.Single(c => c.ID == addPhotoViewModel.DateID);
+
+
                 Photo newPhoto = new Photo
                 {
-                    Name = addPhotoViewModel.Name
-                }; context.Photos.Add(newPhoto);
+                    Name = addPhotoViewModel.Name,
+                    FocalLength = addPhotoViewModel.FocalLength,
+                    Date = newPhotoDate, 
+                    ShutterSpeed = addPhotoViewModel.Shutterspeed,
+                    ISO = addPhotoViewModel.Iso
+
+
+                }; 
+                
+                context.Photos.Add(newPhoto);
                 context.SaveChanges(); 
+
                 return Redirect("/Photo");
             }
             return View(addPhotoViewModel);

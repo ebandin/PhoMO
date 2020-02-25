@@ -11,7 +11,7 @@ namespace PhoMO.ViewModels
     public class AddDateViewModel
     {
         [Required]
-        [Display(Name = "Date Photo Was Taken")]
+        [Display(Name = "Date Photos Were Taken")]
         public string DateTime { get; set; }
     }
 }

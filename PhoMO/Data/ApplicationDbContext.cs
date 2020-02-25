@@ -11,7 +11,7 @@ namespace PhoMO.Data
     {
         public DbSet<Photo> Photos { get; set; }
 
-        public DbSet<Date> Dates { get; set; }
+        public DbSet<PhotoDate> Dates { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

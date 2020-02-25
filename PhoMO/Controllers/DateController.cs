@@ -18,8 +18,10 @@ namespace PhoMO.Controllers
         }
         public IActionResult Index()
         {
-            List<Date> dates = context.Dates.ToList(); return View(dates);
+            List<PhotoDate> dates = context.Dates.ToList(); return View(dates);
         }
+
+        
         public IActionResult Add()
         {
             AddDateViewModel addDateViewModel = new AddDateViewModel();
@@ -29,12 +31,13 @@ namespace PhoMO.Controllers
         public IActionResult Add(AddDateViewModel addCategoryViewModel)
         {
             if (ModelState.IsValid)
-            {
-                Date newDate = new Date
+            { 
+                PhotoDate newDate = new PhotoDate
                 {
                     DateTime = addCategoryViewModel.DateTime
                 }; context.Dates.Add(newDate);
-                context.SaveChanges(); return Redirect("/Date");
+                context.SaveChanges();
+                return Redirect("/Date");
             }
             return View(addCategoryViewModel);
         }

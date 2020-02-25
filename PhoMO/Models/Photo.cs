@@ -14,7 +14,7 @@ namespace PhoMO.Models
         public string Name { get; set; }
 
         [DataType(DataType.Date)]
-        public Date DateTime { get; set; }
+        public PhotoDate DateTime { get; set; }
 
         [Required]
         public int FocalLength { get; set; }
@@ -26,5 +26,10 @@ namespace PhoMO.Models
         public int ISO { get; set; }
 
         public List<Photo> Photos { get; set; }
+
+        public int DateID { get; set; }
+        public PhotoDate Date { get; set; }
+
+        //public<IList<CheeseMenu> CheeseMenus { get; set; }
     }
 }

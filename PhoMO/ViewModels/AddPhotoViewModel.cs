@@ -17,34 +17,35 @@ namespace PhoMO.ViewModels
 
 
         [Required(ErrorMessage = "You must give your Photo a date")]
-        public string Datetime { get; set; }
+        [Display(Name = "Date")]
+        public int DateID { get; set; }
         public List<SelectListItem> Dates { get; set; }
 
         [Required(ErrorMessage = "You must give your Photo a Focal Length")]
         [Display (Name = "Focal Length")]
-        public string FocalLength { get; set; }
+        public int FocalLength { get; set; }
         public List<SelectListItem> FocalLengths { get; set; }
 
         [Required(ErrorMessage = "You must give your Photo a Shutter Speed")]
         [Display(Name = "Shutter Speed")]
-        public string Shutterspeed { get; set; }
+        public int Shutterspeed { get; set; }
         public List<SelectListItem> Shutterspeeds { get; set; }
 
 
         [Required(ErrorMessage = "You must give your Photo an ISO")]
         [Display(Name = "ISO")]
-        public string Iso { get; set; }
+        public int Iso { get; set; }
         public List<SelectListItem> Isos { get; set; }
 
-        public List<SelectListItem> CheeseTypes { get; set; }
-        public AddPhotoViewModel(IEnumerable<Date> dates)
+        public List<SelectListItem> PhotoDates { get; set; }
+        public AddPhotoViewModel(IEnumerable<PhotoDate> dates)
         {
             Dates = new List<SelectListItem>();
             foreach (var date in dates)
             {
                 Dates.Add(new SelectListItem
                 {
-                    Value = date.Id.ToString(),
+                    Value = date.ID.ToString(),
                     Text = date.DateTime
 
                 });
