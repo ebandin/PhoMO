@@ -129,6 +129,11 @@ namespace PhoMO.Controllers
             return View();
         }
 
+        public IActionResult FilePath()
+        {
+            ViewBag.title = "FilePath Builder";
+            return View();
+        }
 
         [HttpPost]
         public IActionResult Remove(int[] photoIds)
