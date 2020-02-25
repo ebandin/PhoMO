@@ -20,6 +20,10 @@
     <Compile Remove="Data\Migrations\20200224102156_Initial.Designer.cs" />
     <Compile Remove="Data\Migrations\20200224102512_AddPhoto.cs" />
     <Compile Remove="Data\Migrations\20200224102512_AddPhoto.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200224103205_AllInlcuding.cs" />
+    <Compile Remove="Data\Migrations\20200224103205_AllInlcuding.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200225134119_PhotoNew.cs" />
+    <Compile Remove="Data\Migrations\20200225134119_PhotoNew.Designer.cs" />
   </ItemGroup>
 
 

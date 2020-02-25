@@ -27,6 +27,8 @@ namespace PhoMO.Controllers
             AddDateViewModel addDateViewModel = new AddDateViewModel();
             return View(addDateViewModel);
         }
+
+
         [HttpPost]
         public IActionResult Add(AddDateViewModel addCategoryViewModel)
         {

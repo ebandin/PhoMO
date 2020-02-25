@@ -219,26 +219,6 @@ namespace PhoMO.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("PhoMO.Models.Date", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("DateId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("DateTime")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DateId");
-
-                    b.ToTable("Dates");
-                });
-
             modelBuilder.Entity("PhoMO.Models.Photo", b =>
                 {
                     b.Property<int>("ID")
@@ -246,7 +226,7 @@ namespace PhoMO.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("DateTimeId")
+                    b.Property<int>("DateID")
                         .HasColumnType("int");
 
                     b.Property<int>("FocalLength")
@@ -267,11 +247,26 @@ namespace PhoMO.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("DateTimeId");
+                    b.HasIndex("DateID");
 
                     b.HasIndex("PhotoID");
 
                     b.ToTable("Photos");
+                });
+
+            modelBuilder.Entity("PhoMO.Models.PhotoDate", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DateTime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Dates");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -325,18 +320,13 @@ namespace PhoMO.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PhoMO.Models.Date", b =>
-                {
-                    b.HasOne("PhoMO.Models.Date", null)
-                        .WithMany("Dates")
-                        .HasForeignKey("DateId");
-                });
-
             modelBuilder.Entity("PhoMO.Models.Photo", b =>
                 {
-                    b.HasOne("PhoMO.Models.Date", "DateTime")
-                        .WithMany()
-                        .HasForeignKey("DateTimeId");
+                    b.HasOne("PhoMO.Models.PhotoDate", "Date")
+                        .WithMany("Photos")
+                        .HasForeignKey("DateID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("PhoMO.Models.Photo", null)
                         .WithMany("Photos")

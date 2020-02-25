@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PhoMO.Migrations
 {
-    public partial class AllInlcuding : Migration
+    public partial class AllTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,20 +50,13 @@ namespace PhoMO.Migrations
                 name: "Dates",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DateTime = table.Column<string>(nullable: true),
-                    DateId = table.Column<int>(nullable: true)
+                    DateTime = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dates", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Dates_Dates_DateId",
-                        column: x => x.DateId,
-                        principalTable: "Dates",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                    table.PrimaryKey("PK_Dates", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,21 +172,21 @@ namespace PhoMO.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: false),
-                    DateTimeId = table.Column<int>(nullable: true),
                     FocalLength = table.Column<int>(nullable: false),
                     ShutterSpeed = table.Column<int>(nullable: false),
                     ISO = table.Column<int>(nullable: false),
+                    DateID = table.Column<int>(nullable: false),
                     PhotoID = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Photos", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Photos_Dates_DateTimeId",
-                        column: x => x.DateTimeId,
+                        name: "FK_Photos_Dates_DateID",
+                        column: x => x.DateID,
                         principalTable: "Dates",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Photos_Photos_PhotoID",
                         column: x => x.PhotoID,
@@ -242,14 +235,9 @@ namespace PhoMO.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dates_DateId",
-                table: "Dates",
-                column: "DateId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Photos_DateTimeId",
+                name: "IX_Photos_DateID",
                 table: "Photos",
-                column: "DateTimeId");
+                column: "DateID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_PhotoID",
