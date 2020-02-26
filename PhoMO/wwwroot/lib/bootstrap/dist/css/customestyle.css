@@ -10,6 +10,7 @@ nav {
     color: lightblue;
     border-bottom: dashed;
 }
+
 body {
     color: floralwhite;
     background-color: lightgray;
@@ -19,6 +20,22 @@ footer {
     background-color: lightblue;
     color: lightblue;
 
+}
+
+input { 
+    background-color: deepskyblue;
+    color: white;
+}
+
+a {
+    color: azure;
+
+}
+
+
+button {
+    background-color: deepskyblue;
+    color: white;
 }
 
 div.form-group {
